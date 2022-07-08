@@ -1,0 +1,42 @@
+<p>client-register works!</p>
+<pre>{{contactForm.value | json }}</pre>
+<h1>Contact form</h1>
+<form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+  <div class="mb-4">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="department" class="form-label">Rol</label>
+    <select name="department" id="department" class="form-select form-select-sm" [(ngModel)]="model.rol">
+      <option selected>Open this select menu</option>
+      <option value="marketing">Operator</option>
+      <option value="sales">Administrator</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  <div class="mb-4">
+    <label for="name" class="form-label">dni</label>
+    <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="model.dni" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="name" class="form-label">Telephone</label>
+    <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="model.telephone" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="name" class="form-label">Email</label>
+    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="model.email" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="name" class="form-label">Password</label>
+    <input type="text" class="form-control" id="password" name="password" [(ngModel)]="model.password" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="d-grid gap-2 col-4 float-end">
+    <button type="submit" class="btn btn-info btn-lg" [disabled]="contactForm.invalid">Send</button>
+  </div>
+</form>
