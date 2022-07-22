@@ -1,0 +1,120 @@
+        <!-- MENU BAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+
+                <a class="navbar-brand" href="">Cloud Parking</a>
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-lg-auto">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link smoothScroll">Inicio</a>
+                        </li>
+                             <!--Operador y administrador-->
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/vehicle">Vehiculo</a> 
+                        </li>
+                          <li class="nav-item">
+                            <a class="nav-link" routerLink="/user">Usuario</a> 
+                        </li>
+                       <li class="nav-item">
+                        <a class="nav-link" routerLink="/client">Cliente</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/parking">Parqueo</a> 
+                        </li>
+                          <li class="nav-item">
+                            <a class="nav-link" routerLink="/slot">Espacio</a> 
+                        </li>
+                          <li class="nav-item">
+                            <a class="nav-link" routerLink="/reservation">Reservacion</a> 
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" routerLink="/rol">Roles</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/tarifa">Tarifa</a> 
+                        </li>
+                        <li class="nav-item" routerLinkActive="active"> 
+                          
+                            <a class="nav-link" routerLink="/Tarifa">Home</a> 
+                                
+                           
+                        </li>
+                         <li class="nav-item">
+                          <a href="" onclick="Logout(); return false;">Salir</a>
+                        </li>      
+                    </ul>
+                </div>
+    
+            </div>
+        </nav>
+
+        <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+    
+            <div class="bg-overlay"></div>
+
+               <div class="container">
+                    <div class="row">
+
+                         <div class="col-lg-8 col-md-10 mx-auto col-12">
+                              <div class="hero-text mt-5 text-center">
+
+                                   
+
+                                    <h1 class="text-black" data-aos="fade-up" data-aos-delay="500">Cliente</h1>
+
+                                   
+                                   
+                              </div>
+                         </div>
+
+                    </div>
+               </div>
+     </section>
+     <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label class="col-md-4">Nombre Completo</label>
+              <input type="text" name="nameClient" id="nameClient" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4">DNI </label>
+              <input type="text" name="dniClient" id="dniClient" class="form-control"/> 
+             
+            </div>
+            <div class="form-group">
+              <label class="col-md-4">age </label>
+              <input type="number" name="ageClient" id="ageClient" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Telefono</label>
+                <input type="text" name="telephoneClient" id="telephoneClient" class="form-control"/>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-4">Email </label>
+                <input type="email" name="emailClient" id="emailClient" class="form-control"/>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-4">Password </label>
+                <input type="password" name="passwordClient" id="passwordClient" class="form-control"/>
+              </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Add Business</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+

@@ -53,32 +53,44 @@
     
             </div>
         </nav>
-            <!-- HERO -->
 
-<ng-container ngif="">  
+<div class="container">
+    <button class="btn btn-primary" [routerLink]="['/register']" routerLinkActive="router-link-active" >Agregar</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">IDUser</th>
+                <th scope="col">IDrol</th>
+                <th scope="col">Name</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Age</th>
+                <th scope="col">Telephone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Clave</th>
+                <th scope="col">State</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let users of list">
+                <td>{{users.iduser}}</td>
+                <td>{{users.rol.name}}</td>
+                <td>{{users.name}}</td>
+                <td>{{users.dni}}</td>
+                <td>{{users.age}}</td>
+                <td>{{users.telephone}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.clave}}</td>
+                <td>{{users.state}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="delete(users.iduser)">Eliminar</button>
+                    <button class="btn btn-warning" [routerLink]="['/editar/',users.iduser]" routerLinkActive="router-link-active" >Modificar</button>
+                </td>
+            </tr>
 
-</ng-container>
+        </tbody>
+    </table>
+</div>
 
-         <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
-    
-                <div class="bg-overlay"></div>
-    
-                   <div class="container">
-                        <div class="row">
-    
-                             <div class="col-lg-8 col-md-10 mx-auto col-12">
-                                  <div class="hero-text mt-5 text-center">
-    
-                                       
-    
-                                        <h1 class="text-black" data-aos="fade-up" data-aos-delay="500">CLOUD PARKING</h1>
-    
-                                       
-                                       
-                                  </div>
-                             </div>
-    
-                        </div>
-                   </div>
-         </section>
-   
+
+<app-footer></app-footer>
