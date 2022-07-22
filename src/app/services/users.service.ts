@@ -7,32 +7,37 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
 
-  url='http://localhost:8080/api/user';
+  url='http://localhost:8080/api/';
   constructor(private http: HttpClient) { }
 
   getUsers():Observable<any>
   {
-    return this.http.get<Users>(this.url+'/getAllUsers');
+    return this.http.get<Users>(this.url+'/user/getAllUsers');
   }
 
   getUsersById(id: string):Observable<any>
   {
-    return this.http.get(this.url+'/getUser/'+id);
+    return this.http.get(this.url+'/user/getUser/'+id);
   }
 
   saveUser(users: Users):Observable<any>
   {
-    return this.http.post(this.url+'/saveUser', users);
+    return this.http.post(this.url+'/user/saveUser', users);
   }
 
   editUser(id:string, users: Users):Observable<any>
   {
-    return this.http.put(this.url+'/'+id, users);
+    return this.http.put(this.url+'/user/'+id, users);
   }
 
   deleteUser(id:string):Observable<any>
   {
-    return this.http.delete(this.url+'/'+id);
+    return this.http.delete(this.url+'/user/'+id);
+  }
+
+  getRols():Observable<any>
+  {
+    return this.http.get<rol>(this.url+'/rol/getAllRoles');
   }
 }
 

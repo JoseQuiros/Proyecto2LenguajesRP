@@ -65,10 +65,12 @@
   </div>
   <div class="mb-4">
     <label for="department" class="form-label">Rol</label>
-    <select class="form-select form-select-sm" [(ngModel)]="newUser.rol.IDrol">
-      <option selected>Open this select menu</option>
-      <option value="2">Operator</option>
-      <option value="2">Administrator</option>
+    <select name="roles"class="form-control" [(ngModel)]="newUser.rol.idrol">
+      <option>Open this select menu</option>
+      <option [value]="rol.idrol"*ngFor="let rol of rolsList">
+        {{rol.name}}
+      </option>
+      
     </select>
   </div>
   <div class="mb-4">

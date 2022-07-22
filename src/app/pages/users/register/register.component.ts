@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/services/users.service';
+import { rol, UsersService } from 'src/app/services/users.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
@@ -18,10 +18,18 @@ export class RegisterComponent implements OnInit {
   };
 
   selectValue='';
+  rolsList: any;
   constructor(private usersService: UsersService, private router:Router) { }
 
   ngOnInit(): void {
-  }
+    this.usersService.getRols().subscribe((data:any)=> {this.rolsList=data;
+  
+  })
+}
+  
+  
+
+
 addUser(){
 this.usersService.saveUser(this.newUser).subscribe(res=>{
   console.log(res);
@@ -29,7 +37,7 @@ this.usersService.saveUser(this.newUser).subscribe(res=>{
 },
 err=>console.log(err)
 );
-
-
 }
+
+
 }
