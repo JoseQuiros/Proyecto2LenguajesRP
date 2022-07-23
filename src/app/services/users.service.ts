@@ -7,8 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
 
-  url='http://localhost:8080/api/';
+  invocation = new XMLHttpRequest();
+  url='http://localhost:8080/api';
   constructor(private http: HttpClient) { }
+
+  
 
   getUsers():Observable<any>
   {
@@ -25,9 +28,9 @@ export class UsersService {
     return this.http.post(this.url+'/user/saveUser', users);
   }
 
-  editUser(id:string, users: Users):Observable<any>
+  editUser(users: Users):Observable<any>
   {
-    return this.http.put(this.url+'/user/'+id, users);
+    return this.http.post(this.url+'/user/updateUser', users);
   }
 
   deleteUser(id:string):Observable<any>
@@ -53,6 +56,7 @@ export interface Users{
   clave:string;
   state:string;
 }
+
 export interface rol{
   
   idrol:string;

@@ -59,7 +59,9 @@ import {HttpClientModule} from '@angular/common/http';
     {path:'slot',component:SlotComponent},
     {path:'rol',component:RolComponent},
     {path:'reservation',component:ReservationComponent},
-    {path:'list',component:ListComponent},{path:'register',component:RegisterComponent}]),
+    {path:'list',component:ListComponent},
+    {path:'register',component:RegisterComponent},
+    {path:'editar/:id',component:UpdateComponent}]),
   
     AppRoutingModule,
     FormsModule,
