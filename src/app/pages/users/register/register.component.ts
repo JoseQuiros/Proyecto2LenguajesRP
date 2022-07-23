@@ -22,9 +22,7 @@ export class RegisterComponent implements OnInit {
   constructor(private usersService: UsersService, private router:Router) { }
 
   ngOnInit(): void {
-    this.usersService.getRols().subscribe((data:any)=> {this.rolsList=data;
-  
-  })
+    this.usersService.getRols().subscribe((data:any)=> {this.rolsList=data;})
 }
   
   
