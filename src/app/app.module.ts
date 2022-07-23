@@ -47,6 +47,7 @@ import {HttpClientModule} from '@angular/common/http';
     ListComponent,
     RegisterComponent,
     UpdateComponent,
+  
     
   ],
   imports: [
@@ -65,7 +66,8 @@ import {HttpClientModule} from '@angular/common/http';
   
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

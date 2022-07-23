@@ -56,14 +56,10 @@
 
 <div class="container">
 
-<h1>Contact form</h1>
-<form action="" #contactForm="ngForm">
-  <div class="mb-4">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newUser.name" required #name="ngModel">
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
-  </div>
-  <div class="mb-4">
+<h1>Datos Usuario</h1>
+<form #userForm="ngForm" (ngSubmit)="userForm.form.valid && addUser()">
+
+    <div class="form-group">
     <label for="department" class="form-label">Rol</label>
     <select name="roles"class="form-control" [(ngModel)]="newUser.rol.idrol">
       <option>Open this select menu</option>
@@ -73,36 +69,48 @@
       
     </select>
   </div>
-  <div class="mb-4">
+  <div class="form-group">
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="namee" name="namee" [(ngModel)]="newUser.name" required #name="ngModel" 
+     [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+   
+  </div>
+
+  <div class="form-group">
     <label for="name" class="form-label">dni</label>
-    <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="newUser.dni" required #name="ngModel">
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+    <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="newUser.dni" required #name="ngModel"
+    [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+    
   </div>
-    <div class="mb-4">
-    <label for="name" class="form-label">Age</label>
-    <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="newUser.age" required #name="ngModel">
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+    <div class="form-group">
+    <label for="name" class="form-label">Edad</label>
+    <input type="number" class="form-control" id="telephone" name="telephone" [(ngModel)]="newUser.age" required #name="ngModel"   
+    [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+   
   </div>
-  <div class="mb-4">
-    <label for="name" class="form-label">Telephone</label>
-    <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="newUser.telephone" required #name="ngModel">
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  <div cclass="form-group">
+    <label for="name" class="form-label">Telefono</label>
+    <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="newUser.telephone" required #name="ngModel"  
+    [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+
   </div>
-  <div class="mb-4">
+  <div class="form-group">
     <label for="name" class="form-label">Email</label>
-    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="newUser.email" required #name="ngModel">
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="newUser.email" required #name="ngModel"  
+     [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
   </div>
-  <div class="mb-4">
-    <label for="name" class="form-label">Password</label>
-    <input type="text" class="form-control" id="password" name="password" [(ngModel)]="newUser.clave" required #name="ngModel">
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  <div class="form-group">
+    <label for="name" class="form-label">Contraseña</label>
+    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="newUser.clave" required #name="ngModel" 
+      [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+
   </div>
-  <div class="d-grid gap-2 col-4 float-end">
-    <button type="submit" class="btn btn-info btn-lg" (click)="addUser()">Guardar</button>
+  <br>
+  <div class="form-group">
+    <button class="btn btn-danger btn-block">Submit</button>
   </div>
+
 </form>
 
 </div>
 <br><br><br><br><br>
-<app-footer></app-footer>
