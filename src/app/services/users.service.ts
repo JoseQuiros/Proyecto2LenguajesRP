@@ -32,7 +32,7 @@ export class UsersService {
 
   deleteUser(id:string):Observable<any>
   {
-    return this.http.delete(this.url+'/user/'+id);
+    return this.http.delete(this.url+'/user/delete/'+id);
   }
 
   getRols():Observable<any>

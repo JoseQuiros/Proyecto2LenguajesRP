@@ -47,6 +47,7 @@ import {HttpClientModule} from '@angular/common/http';
     ListComponent,
     RegisterComponent,
     UpdateComponent,
+  
     
   ],
   imports: [
@@ -59,11 +60,13 @@ import {HttpClientModule} from '@angular/common/http';
     {path:'slot',component:SlotComponent},
     {path:'rol',component:RolComponent},
     {path:'reservation',component:ReservationComponent},
+    {path:'rol',component:RolComponent},
     {path:'list',component:ListComponent},{path:'register',component:RegisterComponent}]),
   
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
