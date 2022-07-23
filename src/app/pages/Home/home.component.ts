@@ -15,6 +15,6 @@ export class HomeComponent implements OnInit {
     
   }
 Login(): void {
-this.router.navigate(['admin']);
+this.router.navigate(['about']);
 }
 }
