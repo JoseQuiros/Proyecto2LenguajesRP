@@ -1,1 +1,108 @@
-<p>update works!</p>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="">Cloud Parking</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link smoothScroll">Inicio</a>
+                </li>
+                     <!--Operador y administrador-->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/vehicle">Vehiculo</a> 
+                </li>
+                  <li class="nav-item"> 
+                    <a class="nav-link" routerLink="/list">Usuario</a> 
+                </li>
+               <li class="nav-item">
+                <a class="nav-link" routerLink="/vehicle">Cliente</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/parking">Parqueo</a> 
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/slot">Espacio</a> 
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/reservation">Reservacion</a> 
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" routerLink="/rol">Roles</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/tarifa">Tarifa</a> 
+                </li>
+                <li class="nav-item" routerLinkActive="active"> 
+                  
+                    <a class="nav-link" routerLink="/Tarifa">Home</a> 
+                        
+                   
+                </li>
+                 <li class="nav-item">
+                  <a href="" onclick="Logout(); return false;">Salir</a>
+                </li>      
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+
+<h1>Update user</h1>
+<form action="" #contactForm="ngForm">
+    <input type="text" class="form-control" id="iduser" name="iduser" [(ngModel)]="userUpdated.iduser" hidden #name="ngModel">
+  <div class="mb-4">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userUpdated.name" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="department" class="form-label">Rol</label>
+    <select name="roles"class="form-control" [(ngModel)]="userUpdated.idrol">
+      <option>Open this select menu</option>
+      <option [value]="rol.idrol"*ngFor="let rol of rolsList">
+        {{rol.name}}
+      </option>
+      
+    </select>
+  </div>
+  <div class="mb-4">
+    <label for="name" class="form-label">dni</label>
+    <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="userUpdated.dni" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+    <div class="mb-4">
+    <label for="name" class="form-label">Age</label>
+    <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="userUpdated.age" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="name" class="form-label">Telephone</label>
+    <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="userUpdated.telephone" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="name" class="form-label">Email</label>
+    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="userUpdated.email" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="name" class="form-label">Password</label>
+    <input type="text" class="form-control" id="password" name="password" [(ngModel)]="userUpdated.clave" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="d-grid gap-2 col-4 float-end">
+    <button type="submit" class="btn btn-info btn-lg" (click)="updateUser()">Actualizar</button>
+  </div>
+</form>
+
+</div>
+<br><br><br><br><br>
+<app-footer></app-footer>

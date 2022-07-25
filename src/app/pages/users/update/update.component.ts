@@ -9,10 +9,10 @@ import { Users, UsersService } from 'src/app/services/users.service';
 })
 export class UpdateComponent implements OnInit {
   id:string="";
-  userUpdated: Users={
-    iduser: '', 
-    idrol:'',
-    name: '', 
+  userUpdated: any={
+    iduser: '',
+    rol: {idrol:''} ,
+    name: '',
     dni: '',
     age: '',
     telephone: '',
@@ -20,21 +20,25 @@ export class UpdateComponent implements OnInit {
     clave: '',
     state: ''
   };
+
+  selectValue='';
+  rolsList: any;
   constructor(private userService:UsersService,private antivateRouter: ActivatedRoute,
     private router:Router) { }
 
   ngOnInit(): void {
+    this.userService.getRols().subscribe((data:any)=> {this.rolsList=data;})
     this.id= this.antivateRouter.snapshot.params.id;
     this.userService.getUsersById(this.id).subscribe(
       res=>{
         this.userUpdated=res;
       },
-
       err=>console.log(err)
     );
   }
+
   updateUser(){
-    this.userService.editUser(this.id, this.userUpdated).subscribe(
+    this.userService.editUser(this.userUpdated).subscribe(
       res=>{
         this.router.navigate(['/list']);
       },
