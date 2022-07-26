@@ -1,0 +1,129 @@
+.inline {
+    background-color: green;
+    color: white;
+    font-size: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    height: 50px; 
+    width: 50px;
+    float: left;
+
+    flex-direction: column !important;
+  
+}
+.preferential {
+    background-color: yellow;
+    color: white;
+    font-size: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    height: 50px; 
+    width: 50px;
+    float: left;
+
+    flex-direction: column !important;
+  
+}
+.occupiedSlot {
+    background-color: red;
+    color: white;
+    font-size: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  
+    height: 50px; 
+    width: 50px;
+    float: left;
+
+    flex-direction: column !important;
+  
+}
+
+.child1 {
+    padding-left: 42px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    align-content: center;
+    border: 2px solid black;
+    width: 35%;
+    overflow: auto;
+    float: left;
+}
+
+#bus {
+    /*   display:flex;
+  flex-flow: row wrap; */
+    overflow: auto;
+    align-content: center;
+    /*   padding-left:7.5%;
+  padding-top:15%; */
+    /*   border-top-left-radius:20%;
+  border-top-right-radius:20%; */
+    position: relative;
+}
+
+
+.red {
+    display: inline-block;
+    width: auto;
+    color: white;
+    padding: 10px;
+    height: auto;
+    Background-Color: red;
+    margin-bottom: 10px;
+}
+
+.green {
+    display: inline-block;
+    width: auto;
+    color: white;
+    padding: 10px;
+    height: auto;
+    Background-Color: green;
+    margin-bottom: 10px;
+}
+
+.blue {
+    display: inline-block;
+    width: auto;
+    color: white;
+    padding: 10px;
+    height: auto;
+    Background-Color: blue;
+    margin-bottom: 10px;
+}
+
+
+
+.parent {
+    width: 100%;
+    overflow: auto;
+}
+
+
+
+
+.child2 {
+    padding-left: 165px;
+    width: 50%;
+    overflow: auto;
+    float: left;
+}
+
+.container {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    
+
+}
+
+#next {
+    visibility: hidden;
+    border: none;
+}

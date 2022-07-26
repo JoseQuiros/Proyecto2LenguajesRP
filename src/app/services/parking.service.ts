@@ -34,10 +34,14 @@ deleteParking(id:string):Observable<any>
 {
   return this.http.delete(this.url+'/parking/delete/'+id);
 }
+
+ getAllParkings():Observable<any>
+  {
+    return this.http.get<Parking>(this.url+'//parking/getAllParkings');
+  }
 }
 
 export interface Parking{
-  
   idparking:string;
   parkingname:string;
 }

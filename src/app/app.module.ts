@@ -11,12 +11,12 @@ import { AboutComponent } from './pages/about/about.component';
 
 import { MenupageComponent } from './pages/menupage/menupage.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
-import { ClientRegisterComponent } from './pages/client-register/client-register.component';
+
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TarifaComponent } from './pages/tarifa/tarifa.component';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
-import { ClientComponent } from './pages/client/client.component';
+
 import { ParkingComponent } from './pages/parking/parking.component';
 import { SlotComponent } from './pages/slot/slot.component';
 import { RolComponent } from './pages/rol/rol.component';
@@ -30,6 +30,7 @@ import { UpdateRolComponent } from './pages/rol/update-rol/update-rol.component'
 import { RegisterParkingComponent } from './pages/parking/register-parking/register-parking.component';
 import { UpdateParkingComponent } from './pages/parking/update-parking/update-parking.component';
 import { RegisterSlotsComponent } from './pages/slot/register-slots/register-slots.component';
+import { SeatsComponent } from './pages/client/seats/seats.component';
 
 
 @NgModule({
@@ -41,10 +42,10 @@ import { RegisterSlotsComponent } from './pages/slot/register-slots/register-slo
     AboutComponent,
     MenupageComponent,
     AdminPageComponent,
-    ClientRegisterComponent,
+
     TarifaComponent,
     VehicleComponent,
-    ClientComponent,
+
     ParkingComponent,
     SlotComponent,
     RolComponent,
@@ -57,6 +58,7 @@ import { RegisterSlotsComponent } from './pages/slot/register-slots/register-slo
     RegisterParkingComponent,
     UpdateParkingComponent,
     RegisterSlotsComponent,
+    SeatsComponent,
   
     
   ],
@@ -65,7 +67,7 @@ import { RegisterSlotsComponent } from './pages/slot/register-slots/register-slo
     RouterModule.forRoot([ {path:'about',component:AboutComponent},
     {path:'tarifa',component:TarifaComponent},
     {path:'vehicle',component:VehicleComponent},
-    {path:'client',component:ClientComponent},
+
     {path:'parking',component:ParkingComponent},
     {path:'slot',component:SlotComponent},
     {path:'rol',component:RolComponent},
@@ -78,7 +80,8 @@ import { RegisterSlotsComponent } from './pages/slot/register-slots/register-slo
     {path:'registerParking',component:RegisterParkingComponent},
     {path:'editParking/:id',component:UpdateParkingComponent},
     {path:'registerSlots',component:RegisterSlotsComponent}]),
-  
+    {path:'seats',component:SeatsComponent},
+    {path:'editar/:id',component:UpdateComponent}]),
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
