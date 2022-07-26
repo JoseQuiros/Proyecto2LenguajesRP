@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="">Cloud Parking</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-lg-auto">
+               
+                     <!--Operador y administrador-->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/vehicle">Reservaciones</a> 
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/parking">Parqueo</a> 
+                </li>
+                <li class="nav-item">
+                    <a href="#home" class="nav-link smoothScroll">Salir</a>
+                </li>
+                  
+            </ul>
+        </div>
+
+    </div>
+</nav>
+   <br> <br> <br>
+        <div class="container">
+            <div class="row">
+                             
+                <div class="col-md-6">
+                    <h2 class="text-black" data-aos="fade-up" data-aos-delay="200">Parqueos disponibles</h2>
+    
+                    <select  (change)="fillParkingSlots($event)"name="parkings"class="form-control" [(ngModel)]="parking.idparking">
+                        <option>Open this select menu</option>
+                        <option [value]="parking.idparking"*ngFor="let parking of parkingList">
+                          {{parking.parkingname}}
+                        </option>
+                        
+                      </select>
+                      <br> 
+                    <div class="red">Reservado</div>
+                    <div class="green">disponible</div>
+                    <div class="blue">Seleccionado</div>
+                </div>
+                <div class="parent">
+                    <div class="child1">
+                        <div  id="bus"> 
+                            <div *ngFor="let slots of list" >
+                                <div [ngSwitch]="slots.state">
+                                    <div *ngSwitchCase="'D'">  
+
+                                        <ng-container *ngIf="slots.preferentialslot=='Y'; else normal">
+                                            <div class="preferential"
+                                            id="'{{slots.number}}'" (click)="selectSeat(slots.idparkingslot,slots.number, slots.parking.parkingname);">
+                                      </div>
+                                          </ng-container>
+                                          <ng-template #normal>
+                                            <div class="inline" 
+                                            id="'{{slots.number}}'" (click)="selectSeat(slots.idparkingslot,slots.number, slots.parking.parkingname);">
+                                            </div>
+                                        </ng-template>
+
+                                    </div>
+                                    <div *ngSwitchCase="'O'">
+                                        <div class="occupiedSlot"
+                                        id="'{{slots.number}}'">
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+
+
+                        </div>
+                       </div>
+                         
+               
+                    <div class="child2 ml-3">
+                        <div class="entry-form">
+                            <form action="" id="reservation-entry-form">
+                                  <h2 class="text-black" data-aos="fade-up" data-aos-delay="200">Reservar espacio </h2>
+    
+                                       <input type="text" name="id" id="id" hidden>
+    
+                                       <label class="text-black" for="idTime">Tiempo: </label>
+                                       <select id="idTime" class="form-control" name="idTime">                                           
+                                       </select>
+    
+                                     
+                               
+                                       <label for="cantTime">Elija la cantidad de tiempo </label>                 
+                                       <input type="number" name="cantTime" id="cantTime" class="form-control" placeholder="0" required="">
+                                       <label for="idType">Numero del espacio: </label>
+                                       <input type="text" name="slotNumber" id="slotNumber" class="form-control"  [(ngModel)]="parkingslot.number"  #name="ngModel" disabled>
+                                       <label for="idType">Nombre del paqueo: </label>
+                                       <input type="text" name="parkingName" id="parkingName" class="form-control"  [(ngModel)]="parkingslot.parkingName" #name="ngModel" disabled>
+                                       <label for="dateHour">Fecha y hora: </label>
+    
+                                       <input type="datetime-local" id="dateHour"
+                                           name="dateHour" value="2022-06-07T00:00"
+                                           min="2022-06-07T00:00" max="2026-06-14T00:00">
+    
+                                    <button type="button" class="btn btn-secondary" onclick="return consultReservation();" id="form-submit2">Consultar</button>
+                                          <label for="idType">Costo: </label>
+                                       <input type="text" name="idTotalCostResult" id="idTotalCostResult" class="form-control" placeholder="" required="" disabled>
+                                       <br>
+    
+                                       <label id="resultReservationAvailable"></label>
+                                        <br>
+                                       <button class="submit-btn form-control" onsubmit="return AddReservation();" id="form-submit">Reservar</button>
+                                       <button class="submit-btn form-control" onclick="Clear();return false" id="form-cancel">Cancelar</button>
+                                 
+    
+                                       <label id="resultReservation"></label>
+                            </form>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>                       
+        </div>
+   
