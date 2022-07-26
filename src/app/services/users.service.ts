@@ -40,7 +40,7 @@ export class UsersService {
 
   getRols():Observable<any>
   {
-    return this.http.get<rol>(this.url+'/rol/getAllRoles');
+    return this.http.get<Rol>(this.url+'/rol/getAllRoles');
   }
 }
 
@@ -57,7 +57,7 @@ export interface Users{
   state:string;
 }
 
-export interface rol{
+export interface Rol{
   
   idrol:string;
   name:string;

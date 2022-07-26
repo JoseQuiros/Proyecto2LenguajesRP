@@ -1,6 +1,5 @@
-
-<!-- MENU BAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
         <a class="navbar-brand" href="">Cloud Parking</a>
@@ -54,29 +53,34 @@
 
     </div>
 </nav>
-<br>
+
 <div class="container">
 
-<h1>Registrar Rol</h1> <br><br>
-<button class="btn btn-primary" [routerLink]="['/registerParking']" routerLinkActive="router-link-active" >Agregar</button> <br><br>
-<table class="table">
-<thead>
-    <tr>
-        <th scope="col">IDparking</th>
-        <th scope="col">Nombre</th>
-        <th>Accion</th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let parkings of listParking">
-        <td>{{parkings.idparking}}</td>
-        <td>{{parkings.parkingname}}</td>
-        <td>
-            <button class="btn btn-danger" (click)="deleteParking(parkings.idparking)">Eliminar</button>
-            <button class="btn btn-warning" [routerLink]="['/editParking/',parkings.idparking]" routerLinkActive="router-link-active" >Modificar</button>
-        </td>
-    </tr>
+<h1>Datos Rol</h1>
+<form #userForm="ngForm" (ngSubmit)="userForm.form.valid && addRol()">
 
-</tbody>
-</table>
+    <div class="form-group">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newRol.name" required #name="ngModel" 
+         [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+       
+      </div>
+
+    <div class="form-group">
+    <label for="department" class="form-label">Autoridad</label>
+    <select name="roles"class="form-control " [(ngModel)]="newRol.authority">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+
+    <br>
+  <div class="form-group">
+    <button class="btn btn-danger btn-block">Submit</button>
+  </div>
+
+</form>
+
 </div>
+<br><br><br><br><br>

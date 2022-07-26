@@ -25,6 +25,11 @@ import { ListComponent } from './pages/users/list/list.component';
 import { RegisterComponent } from './pages/users/register/register.component';
 import { UpdateComponent } from './pages/users/update/update.component';
 import {HttpClientModule} from '@angular/common/http';
+import { RegisterRolComponent } from './pages/rol/register-rol/register-rol.component';
+import { UpdateRolComponent } from './pages/rol/update-rol/update-rol.component';
+import { RegisterParkingComponent } from './pages/parking/register-parking/register-parking.component';
+import { UpdateParkingComponent } from './pages/parking/update-parking/update-parking.component';
+import { RegisterSlotsComponent } from './pages/slot/register-slots/register-slots.component';
 
 
 @NgModule({
@@ -47,6 +52,11 @@ import {HttpClientModule} from '@angular/common/http';
     ListComponent,
     RegisterComponent,
     UpdateComponent,
+    RegisterRolComponent,
+    UpdateRolComponent,
+    RegisterParkingComponent,
+    UpdateParkingComponent,
+    RegisterSlotsComponent,
   
     
   ],
@@ -62,7 +72,12 @@ import {HttpClientModule} from '@angular/common/http';
     {path:'reservation',component:ReservationComponent},
     {path:'list',component:ListComponent},
     {path:'register',component:RegisterComponent},
-    {path:'editar/:id',component:UpdateComponent}]),
+    {path:'editar/:id',component:UpdateComponent},
+    {path: 'registerRol', component:RegisterRolComponent},
+    {path:'editRol/:id',component:UpdateRolComponent},
+    {path:'registerParking',component:RegisterParkingComponent},
+    {path:'editParking/:id',component:UpdateParkingComponent},
+    {path:'registerSlots',component:RegisterSlotsComponent}]),
   
     AppRoutingModule,
     FormsModule,
