@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminPageComponent } from '../admin-page/admin-page.component';
 import { HomeComponent } from '../Home/home.component';
 import { NgModule } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 
 export const ROUTES: Routes = [
@@ -23,9 +24,10 @@ const routes: Routes=[
 
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private localStorage: LoginService) { }
 
   ngOnInit(): void {
+    console.log(this.localStorage.getData('iduser'));
   }
 
 }
