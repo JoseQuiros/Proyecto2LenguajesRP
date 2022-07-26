@@ -1,6 +1,5 @@
-
-<!-- MENU BAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
         <a class="navbar-brand" href="">Cloud Parking</a>
@@ -54,29 +53,54 @@
 
     </div>
 </nav>
-<br>
+
 <div class="container">
 
-<h1>Registrar Rol</h1> <br><br>
-<button class="btn btn-primary" [routerLink]="['/registerParking']" routerLinkActive="router-link-active" >Agregar</button> <br><br>
-<table class="table">
-<thead>
-    <tr>
-        <th scope="col">IDparking</th>
-        <th scope="col">Nombre</th>
-        <th>Accion</th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let parkings of listParking">
-        <td>{{parkings.idparking}}</td>
-        <td>{{parkings.parkingname}}</td>
-        <td>
-            <button class="btn btn-danger" (click)="deleteParking(parkings.idparking)">Eliminar</button>
-            <button class="btn btn-warning" [routerLink]="['/editParking/',parkings.idparking]" routerLinkActive="router-link-active" >Modificar</button>
-        </td>
-    </tr>
+<h1>Datos Espacios</h1>
+<form #userForm="ngForm" (ngSubmit)="userForm.form.valid && addSlots()">
 
-</tbody>
-</table>
+    <div class="form-group">
+    <label for="department" class="form-label">Parqueo</label>
+    <select name="parking"class="form-control" [(ngModel)]="newSlot.parking.idparking">
+      <option>Open this select menu</option>
+      <option [value]="parking.idparking" *ngFor="let parking of parkingsList">
+        {{parking.parkingname}}
+      </option>      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="department" class="form-label">Tipo de vehiculo</label>
+    <select name="type"class="form-control" [(ngModel)]="newSlot.parking.idparking">
+      <option>Open this select menu</option>
+      <option [value] ="types.idtype" *ngFor="let types of typesList">
+        {{types.name}}
+      </option>      
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="name" class="form-label">Numero de espacios</label>
+    <input type="number" class="form-control" id="namee" name="namee" [(ngModel)]="newSlot.number" required #name="ngModel" 
+     [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+   
+  </div>
+
+  <div class="form-group">
+    <label for="department" class="form-label">Espacio preferencial</label>
+    <select name="pref"class="form-control" [(ngModel)]="newSlot.parking.idparking">
+      <option selected>Open this select menu</option>
+      <option>Y</option>
+      <option>N</option>     
+    </select>
+  </div>
+
+  <br>
+  <div class="form-group">
+    <button class="btn btn-danger btn-block">Submit</button>
+  </div>
+
+</form>
+
 </div>
+<br><br><br><br><br>

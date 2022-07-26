@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { rol, UsersService } from 'src/app/services/users.service';
+import { Rol, UsersService } from 'src/app/services/users.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
@@ -23,9 +23,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersService.getRols().subscribe((data:any)=> {this.rolsList=data;})
-}
-  
-  
+  }  
 
 
 addUser(){

@@ -6,18 +6,41 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ParkingService {
-
-  
-  invocation = new XMLHttpRequest();
   url='http://localhost:8080/api';
+
   constructor(private http: HttpClient) { }
 
+getParkings():Observable<any>
+{
+  return this.http.get<Parking>(this.url+'/parking/getAllParkings');
+}
 
-  getAllParkings():Observable<any>
+getParkingById(id: string):Observable<any>
+{
+  return this.http.get(this.url+'/parking/getParking/'+id);
+}
+
+saveParking(parking: Parking):Observable<any>
+{
+  return this.http.post(this.url+'/parking/saveParking', parking);
+}
+
+editParking(parking: Parking):Observable<any>
+{
+  return this.http.post(this.url+'/parking/updateParking', parking);
+}
+
+deleteParking(id:string):Observable<any>
+{
+  return this.http.delete(this.url+'/parking/delete/'+id);
+}
+
+ getAllParkings():Observable<any>
   {
     return this.http.get<Parking>(this.url+'//parking/getAllParkings');
   }
 }
+
 export interface Parking{
   idparking:string;
   parkingname:string;
