@@ -15,12 +15,16 @@ export class SeatsComponent implements OnInit {
     idparking:  '',
     parkingName:''
   }
+  parkingslot:any={
+    idparking:  '',
+    parkingName:'',
+    number:'',
+    idparkingslot:''
+  }
   constructor(private parkingslotservice: ParkinslotsService, private parkingService: ParkingService) { }
 
   ngOnInit(): void {
     this.parkingService.getAllParkings().subscribe((data:any)=> {this.parkingList=data;})
-
-
   }
  
   GetParkingSlotByParking(_idParking: number)
@@ -40,5 +44,11 @@ export class SeatsComponent implements OnInit {
     this.idParking = event.target.value;
     this.GetParkingSlotByParking(this.idParking);
   }
+  selectSeat(idparkingslot:number,numberSlot:string, parkingname:string){
+    this.parkingslot.idparkingslot=idparkingslot;
+    this.parkingslot.number= numberSlot;
+    this.parkingslot.parkingName=parkingname;
+    console.log('clickeado'+ this.parkingslot.parkingName );
 
+ }
 }
