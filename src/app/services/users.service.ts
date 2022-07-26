@@ -22,7 +22,10 @@ export class UsersService {
   {
     return this.http.get(this.url+'/user/getUser/'+id);
   }
-
+  getUsersByEmail(email: string):Observable<any>
+  {
+    return this.http.get(this.url+'/user/login/'+ email);
+  }
   saveUser(users: Users):Observable<any>
   {
     return this.http.post(this.url+'/user/saveUser', users);
