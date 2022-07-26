@@ -1,5 +1,3 @@
-
-<!-- MENU BAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
@@ -54,29 +52,26 @@
 
     </div>
 </nav>
-<br>
+
 <div class="container">
 
-<h1>Registrar Rol</h1> <br><br>
-<button class="btn btn-primary" [routerLink]="['/registerParking']" routerLinkActive="router-link-active" >Agregar</button> <br><br>
-<table class="table">
-<thead>
-    <tr>
-        <th scope="col">IDparking</th>
-        <th scope="col">Nombre</th>
-        <th>Accion</th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let parkings of listParking">
-        <td>{{parkings.idparking}}</td>
-        <td>{{parkings.parkingname}}</td>
-        <td>
-            <button class="btn btn-danger" (click)="deleteParking(parkings.idparking)">Eliminar</button>
-            <button class="btn btn-warning" [routerLink]="['/editParking/',parkings.idparking]" routerLinkActive="router-link-active" >Modificar</button>
-        </td>
-    </tr>
+<h1>Update Rol</h1>
+<form action="" #contactForm="ngForm">
+    <input type="text" class="form-control" id="iduser" name="iduser" [(ngModel)]="rolUpdate.idrol" hidden #name="ngModel">
+  <div class="form-group">
+    <label for="department" class="form-label">Autoridad</label>
+    <select name="roles"class="form-control " [(ngModel)]="rolUpdate.authority">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+  <br>
+  <div class="d-grid gap-2 col-4 float-end">
+    <button type="submit" class="btn btn-info btn-lg" (click)="updateRol()">Actualizar</button>
+  </div>
+</form>
 
-</tbody>
-</table>
 </div>
+<br><br><br><br><br>
+<app-footer></app-footer>
