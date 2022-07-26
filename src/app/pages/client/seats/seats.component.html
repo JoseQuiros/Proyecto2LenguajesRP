@@ -56,18 +56,14 @@
 
                                         <ng-container *ngIf="slots.preferentialslot=='Y'; else normal">
                                             <div class="preferential"
-                                            id="'{{slots.number}}'">
-                                            </div>
+                                            id="'{{slots.number}}'" (click)="selectSeat(slots.idparkingslot,slots.number, slots.parking.parkingname);">
+                                      </div>
                                           </ng-container>
                                           <ng-template #normal>
-                                            <div class="inline"
-                                            id="'{{slots.number}}'">
+                                            <div class="inline" 
+                                            id="'{{slots.number}}'" (click)="selectSeat(slots.idparkingslot,slots.number, slots.parking.parkingname);">
                                             </div>
-                                          </ng-template>
-
-
-                                       
-
+                                        </ng-template>
 
                                     </div>
                                     <div *ngSwitchCase="'O'">
@@ -100,9 +96,9 @@
                                        <label for="cantTime">Elija la cantidad de tiempo </label>                 
                                        <input type="number" name="cantTime" id="cantTime" class="form-control" placeholder="0" required="">
                                        <label for="idType">Numero del espacio: </label>
-                                       <input type="text" name="slotNumber" id="slotNumber" class="form-control" placeholder="" required="" disabled>
+                                       <input type="text" name="slotNumber" id="slotNumber" class="form-control"  [(ngModel)]="parkingslot.number"  #name="ngModel" disabled>
                                        <label for="idType">Nombre del paqueo: </label>
-                                       <input type="text" name="parkingName" id="parkingName" class="form-control" placeholder="" required="" disabled>
+                                       <input type="text" name="parkingName" id="parkingName" class="form-control"  [(ngModel)]="parkingslot.parkingName" #name="ngModel" disabled>
                                        <label for="dateHour">Fecha y hora: </label>
     
                                        <input type="datetime-local" id="dateHour"
