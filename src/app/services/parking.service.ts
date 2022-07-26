@@ -6,13 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ParkingService {
-
-  
-  invocation = new XMLHttpRequest();
   url='http://localhost:8080/api';
+
   constructor(private http: HttpClient) { }
 
-  getParkings():Observable<any>
+getParkings():Observable<any>
 {
   return this.http.get<Parking>(this.url+'/parking/getAllParkings');
 }

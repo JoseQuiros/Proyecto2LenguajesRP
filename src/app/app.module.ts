@@ -53,13 +53,11 @@ import { SeatsComponent } from './pages/client/seats/seats.component';
     ListComponent,
     RegisterComponent,
     UpdateComponent,
-
     RegisterRolComponent,
     UpdateRolComponent,
     RegisterParkingComponent,
     UpdateParkingComponent,
     RegisterSlotsComponent,
-
     SeatsComponent,
   
     
@@ -76,9 +74,14 @@ import { SeatsComponent } from './pages/client/seats/seats.component';
     {path:'reservation',component:ReservationComponent},
     {path:'list',component:ListComponent},
     {path:'register',component:RegisterComponent},
+    {path:'editar/:id',component:UpdateComponent},
+    {path: 'registerRol', component:RegisterRolComponent},
+    {path:'editRol/:id',component:UpdateRolComponent},
+    {path:'registerParking',component:RegisterParkingComponent},
+    {path:'editParking/:id',component:UpdateParkingComponent},
+    {path:'registerSlots',component:RegisterSlotsComponent},
     {path:'seats',component:SeatsComponent},
     {path:'editar/:id',component:UpdateComponent}]),
- 
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
