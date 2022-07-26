@@ -79,7 +79,7 @@ import { SeatsComponent } from './pages/client/seats/seats.component';
     {path:'editRol/:id',component:UpdateRolComponent},
     {path:'registerParking',component:RegisterParkingComponent},
     {path:'editParking/:id',component:UpdateParkingComponent},
-    {path:'registerSlots',component:RegisterSlotsComponent}]),
+    {path:'registerSlots',component:RegisterSlotsComponent},
     {path:'seats',component:SeatsComponent},
     {path:'editar/:id',component:UpdateComponent}]),
     AppRoutingModule,
