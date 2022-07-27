@@ -31,7 +31,13 @@ import { RegisterParkingComponent } from './pages/parking/register-parking/regis
 import { UpdateParkingComponent } from './pages/parking/update-parking/update-parking.component';
 import { RegisterSlotsComponent } from './pages/slot/register-slots/register-slots.component';
 import { SeatsComponent } from './pages/client/seats/seats.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -59,11 +65,12 @@ import { SeatsComponent } from './pages/client/seats/seats.component';
     UpdateParkingComponent,
     RegisterSlotsComponent,
     SeatsComponent,
-  
+
     
   ],
   imports: [
     BrowserModule,
+    
     RouterModule.forRoot([ {path:'about',component:AboutComponent},
     {path:'tarifa',component:TarifaComponent},
     {path:'vehicle',component:VehicleComponent},
@@ -85,6 +92,12 @@ import { SeatsComponent } from './pages/client/seats/seats.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule
     
   ],
   providers: [],
