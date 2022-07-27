@@ -73,6 +73,8 @@ import { MatIconModule } from '@angular/material/icon';
     UpdateParkingComponent,
     RegisterSlotsComponent,
     SeatsComponent,
+
+
     RegisterVehicleComponent,
     UpdateVehicleComponent,
     ListClientComponent,
