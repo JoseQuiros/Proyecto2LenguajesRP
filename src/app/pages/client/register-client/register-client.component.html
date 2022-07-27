@@ -22,7 +22,7 @@
                     <a class="nav-link" routerLink="/list">Usuario</a> 
                 </li>
                <li class="nav-item">
-                <a class="nav-link" routerLink="/vehicle">Cliente</a> 
+                <a class="nav-link" routerLink="/listClient">Cliente</a> 
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/parking">Parqueo</a> 
@@ -56,45 +56,55 @@
 
 <div class="container">
 
-<h1>Datos Espacios</h1>
-<form #userForm="ngForm" (ngSubmit)="userForm.form.valid && addSlots()">
+<h1>Datos Usuario</h1>
+<form #userForm="ngForm" (ngSubmit)="userForm.form.valid && addClient()">
 
     <div class="form-group">
-    <label for="department" class="form-label">Parqueo</label>
-    <select name="parking"class="form-control" [(ngModel)]="newSlot.parking.idparking">
+    <label for="department" class="form-label">Vehicle</label>
+    <select name="roles"class="form-control" [contentEditable]="true" [(ngModel)]="newClient.vehicle.idvehicle">
       <option>Open this select menu</option>
-      <option [value]="parking.idparking" *ngFor="let parking of parkingsList">
-        {{parking.parkingname}}
-      </option>      
+      <option [value]="vehicles.idvehicle"*ngFor="let vehicles of vehiclesList">
+        {{vehicles.register}}
+      </option>
+      
     </select>
   </div>
-
   <div class="form-group">
-    <label for="department" class="form-label">Tipo de vehiculo</label>
-    <select name="type"class="form-control" [(ngModel)]="newSlot.typevehicle.idtype">
-      <option>Open this select menu</option>
-      <option [value] ="types.idtype" *ngFor="let types of typesList">
-        {{types.name}}
-      </option>      
-    </select>
-  </div>
-  
-  <div class="form-group">
-    <label for="name" class="form-label">Numero de espacios</label>
-    <input type="number" class="form-control" id="namee" name="namee" [(ngModel)]="newSlot.number" required #name="ngModel" 
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="namee" name="namee" [(ngModel)]="newClient.name" required #name="ngModel" 
      [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
    
   </div>
 
   <div class="form-group">
-    <label for="department" class="form-label">Espacio preferencial</label>
-    <select name="pref"class="form-control" [(ngModel)]="newSlot.preferential">
-      <option selected>Open this select menu</option>
-      <option value ="Y">Si</option>
-      <option value ="N">NO</option>     
-    </select>
+    <label for="name" class="form-label">dni</label>
+    <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="newClient.dni" required #name="ngModel"
+    [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+    
   </div>
+    <div class="form-group">
+    <label for="name" class="form-label">Edad</label>
+    <input type="number" class="form-control" id="telephone" name="telephone" [(ngModel)]="newClient.age" required #name="ngModel"   
+    [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+   
+  </div>
+  <div cclass="form-group">
+    <label for="name" class="form-label">Telefono</label>
+    <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="newClient.telephone" required #name="ngModel"  
+    [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
 
+  </div>
+  <div class="form-group">
+    <label for="name" class="form-label">Email</label>
+    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="newClient.email" required #name="ngModel"  
+     [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+  </div>
+  <div class="form-group">
+    <label for="name" class="form-label">Contraseña</label>
+    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="newClient.clave" required #name="ngModel" 
+      [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required>
+
+  </div>
   <br>
   <div class="form-group">
     <button class="btn btn-danger btn-block">Submit</button>
