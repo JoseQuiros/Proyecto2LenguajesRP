@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     clave: '',
   };
   userCompare: any={
-    rol: {idrol:''} ,
+    rol: {idrol:'',name:'',authority:''} ,
     name: '', 
     dni: '',
     age: '',
@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
     this.userService.getUsersByEmail(this.user.email).subscribe(
       (res) => {
         this.userCompare = res;
+ 
         this.login();
       },
       (err) => console.log(err)
@@ -47,21 +48,20 @@ export class HomeComponent implements OnInit {
     if (this.user.clave == this.userCompare.clave) {
 
       this.localStorageService.saveData('iduser',this.userCompare.iduser);
-      this.localStorageService.saveData('email',this.userCompare.email);
+      this.localStorageService.saveData('authority',this.userCompare.rol.authority);
       this.localStorageService.saveData('name',this.userCompare.name);
-      this.localStorageService.saveData('authority',this.userCompare.authority)
-      this.redirectView(this.userCompare.authority);
+      this.redirectView(this.userCompare.rol.authority);
     } else {
-   
+   console.log("pasword incorrecto"+"user ingresado clave:"+this.user.clave+" user traido clave " +this.userCompare.clave );
     }
-    this.router.navigate(['about']);
+   
   }
-
   redirectView(flag: number) {
+    console.log("flagggg"+ flag);
     switch (flag) {
       case 1:
         this.router.navigate(['/seats']);
-     
+        this.localStorageService.saveData('name',this.userCompare.name);
         break;
       case 2:
         this.router.navigate(['/about']);
@@ -79,4 +79,22 @@ export class HomeComponent implements OnInit {
 
 
   }
+
+
+
+  
+  public saveData(key: string, value: string) {
+    localStorage.setItem(key, value);
+    }
+  
+    public getData(key: string) {
+      return localStorage.getItem(key)
+    }
+    public removeData(key: string) {
+      localStorage.removeItem(key);
+    }
+  
+    public clearData() {
+      localStorage.clear();
+    }
 }
