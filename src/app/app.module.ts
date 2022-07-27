@@ -31,7 +31,15 @@ import { RegisterParkingComponent } from './pages/parking/register-parking/regis
 import { UpdateParkingComponent } from './pages/parking/update-parking/update-parking.component';
 import { RegisterSlotsComponent } from './pages/slot/register-slots/register-slots.component';
 import { SeatsComponent } from './pages/client/seats/seats.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { RegisterVehicleComponent } from './pages/vehicle/register-vehicle/register-vehicle.component';
+import { UpdateVehicleComponent } from './pages/vehicle/update-vehicle/update-vehicle.component';
+import { ListClientComponent } from './pages/client/list-client/list-client.component';
+import { RegisterClientComponent } from './pages/client/register-client/register-client.component';
+import { UpdateClientComponent } from './pages/client/update-client/update-client.component';
+
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav'
@@ -66,6 +74,15 @@ import { MatIconModule } from '@angular/material/icon';
     RegisterSlotsComponent,
     SeatsComponent,
 
+
+
+    RegisterVehicleComponent,
+    UpdateVehicleComponent,
+    ListClientComponent,
+    RegisterClientComponent,
+    UpdateClientComponent,
+  
+
     
   ],
   imports: [
@@ -88,7 +105,12 @@ import { MatIconModule } from '@angular/material/icon';
     {path:'editParking/:id',component:UpdateParkingComponent},
     {path:'registerSlots',component:RegisterSlotsComponent},
     {path:'seats',component:SeatsComponent},
-    {path:'editar/:id',component:UpdateComponent}]),
+    {path:'editar/:id',component:UpdateComponent},
+    {path:'registerVehicle',component:RegisterVehicleComponent},
+    {path:'editarVehicle/:id',component:UpdateVehicleComponent},
+    {path:'listClient',component:ListClientComponent},
+    {path:'registerClient',component:RegisterClientComponent},
+    {path:'editarClient/:id',component:UpdateClientComponent}]),
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
