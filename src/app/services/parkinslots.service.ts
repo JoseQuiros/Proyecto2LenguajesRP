@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Parking } from './parking.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class ParkinslotsService {
 }
 export interface ParkingSlot{
   idparkingslot:string;
-  idparking:string;
+  parking: Parking;
   idtypevehicle:string;
   number:string;
   preferentialslot:string;
