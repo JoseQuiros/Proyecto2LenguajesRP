@@ -27,7 +27,7 @@ export class AboutComponent implements OnInit {
   constructor(private localStorage: LoginService) { }
 
   ngOnInit(): void {
-    console.log(this.localStorage.getData('iduser'));
+    console.log(localStorage.getData('iduser'));
   }
 
 }
