@@ -37,7 +37,7 @@ import { ListClientComponent } from './pages/client/list-client/list-client.comp
 import { RegisterClientComponent } from './pages/client/register-client/register-client.component';
 import { UpdateClientComponent } from './pages/client/update-client/update-client.component';
 
-=======
+
 import { RegisterTarifaComponent } from './pages/tarifa/register-tarifa/register-tarifa.component';
 import { UpdateTarifaComponent } from './pages/tarifa/update-tarifa/update-tarifa.component';
 import { UpdateSlotComponent } from './pages/slot/update-slot/update-slot.component';
@@ -81,7 +81,7 @@ import { NavbarClientComponent } from './sharepage/navbar-client/navbar-client.c
 
     NavbarClientComponent,
     
-=======
+
     RegisterTarifaComponent,
     UpdateTarifaComponent,
     UpdateSlotComponent,
