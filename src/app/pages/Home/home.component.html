@@ -11,42 +11,48 @@
   <div class="container mt-5 mb-5">
     <div class="row">
       <div class="ml-auto col-lg-5 col-md-6 col-12">
-        <h2 class="mb-4 pb-2" data-aos="fade-up" data-aos-delay="200">
-          Iniciar Sesión
-        </h2>
+       
+        <div class="col-md-9 col-lg-8 mx-auto">
+          <h3 class="login-heading mb-4">Iniciar Sesión</h3>
 
-        <form action="" data-aos="fade-up" data-aos-delay="400" role="form">
-          <input
-            type="text"
-            class="form-control"
-            id="email"
-            name="email"
-            [(ngModel)]="user.email"
-            required
-            #name="ngModel"
-            placeholder="Email"
-          />
-          <input
-          type="password"
-          class="form-control"
-          id="password"
-          name="password"
-          [(ngModel)]="user.clave"
-          required
-          #name="ngModel"
-          placeholder="password"
-        />
-          <div class="form-group">
-            <button
-              type="submit"
-              class="btn btn-primary btn-lg btn-block login-btn"
-              (click)="getUserByEmail()"
-            >
-              Login
-            </button>
-          </div>
-          
-        </form>
+          <!-- Sign In Form -->
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  id="inputEmail4"     [(ngModel)]="user.email">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+             </div>
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password"[ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="inputPassword4"    [(ngModel)]="user.clave">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+             </div>
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+              <label class="form-check-label" for="rememberPasswordCheck">
+                Remember password
+              </label>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
+            
+              <div [style.visibility]="flagLogin ? 'visible' : 'hidden'" class="text-center">    
+               <label style="color:red">
+               
+               Datos incorrectos
+              </label></div>
+            </div>
+
+          </form>
+        </div>
+        
       </div>
 
       <div class="mx-auto mt-4 mt-lg-0 mt-md-0 col-lg-5 col-md-6 col-12">
@@ -66,5 +72,5 @@
         </p>
       </div>
     </div>
-  </div>
+
 

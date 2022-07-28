@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl,FormGroup,Validators,FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { LoginService } from 'src/app/services/login.service';
 import { Users, UsersService } from 'src/app/services/users.service';
 import { VehicleService } from 'src/app/services/vehicle.service';
@@ -36,15 +37,44 @@ export class HomeComponent implements OnInit {
     description: ''
   };
 
-  formData!: FormGroup;
+  registerForm:any = FormGroup;
+  submitted = false;
+  flagLogin=false;
   constructor(
     private userService: UsersService,
     private readonly router: Router,
     private localStorageService: LoginService,
-    private vehicleService: VehicleService
+    private vehicleService: VehicleService,
+    private formBuilder: FormBuilder
   ) {}
+  get f() { return this.registerForm.controls; }
+  onSubmit() {
+    
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
+    //True if all the fields are filled
+    if(this.submitted)
+    {
+      this.getUserByEmail();
+    }
+   
+  }
 
-  ngOnInit(): void {}
+
+
+  ngOnInit(): void {
+
+    this.registerForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
+      });
+
+
+
+  }
   getUserByEmail(): void {
     this.userService.getUsersByEmail(this.user.email).subscribe(
       (res) => {
@@ -76,11 +106,12 @@ export class HomeComponent implements OnInit {
 
       }
      
-
+     
 
       this.redirectView(this.userCompare.rol.authority);
+
     } else {
-   console.log("pasword incorrecto"+"user ingresado clave:"+this.user.clave+" user traido clave " +this.userCompare.clave );
+      this.flagLogin=true;
     }
    
   }
@@ -107,25 +138,11 @@ export class HomeComponent implements OnInit {
 
   logout(){
 
-
-
+    this.router.navigate(['/home']);
+    this.localStorageService.clearData();
   }
 
 
 
   
-  public saveData(key: string, value: string) {
-    localStorage.setItem(key, value);
-    }
-  
-    public getData(key: string) {
-      return localStorage.getItem(key)
-    }
-    public removeData(key: string) {
-      localStorage.removeItem(key);
-    }
-  
-    public clearData() {
-      localStorage.clear();
-    }
 }
