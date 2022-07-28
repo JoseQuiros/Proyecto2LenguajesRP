@@ -12,7 +12,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { MenupageComponent } from './pages/menupage/menupage.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TarifaComponent } from './pages/tarifa/tarifa.component';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
@@ -36,6 +36,8 @@ import { UpdateVehicleComponent } from './pages/vehicle/update-vehicle/update-ve
 import { ListClientComponent } from './pages/client/list-client/list-client.component';
 import { RegisterClientComponent } from './pages/client/register-client/register-client.component';
 import { UpdateClientComponent } from './pages/client/update-client/update-client.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarClientComponent } from './sharepage/navbar-client/navbar-client.component';
 
 
 @NgModule({
@@ -69,16 +71,17 @@ import { UpdateClientComponent } from './pages/client/update-client/update-clien
     ListClientComponent,
     RegisterClientComponent,
     UpdateClientComponent,
-  
+    NavbarClientComponent,
+    
     
   ],
   imports: [
     BrowserModule,
-    
     RouterModule.forRoot([ {path:'about',component:AboutComponent},
     {path:'tarifa',component:TarifaComponent},
     {path:'vehicle',component:VehicleComponent},
 
+    {path:'home',component:HomeComponent},
     {path:'parking',component:ParkingComponent},
     {path:'slot',component:SlotComponent},
     {path:'rol',component:RolComponent},
@@ -99,7 +102,9 @@ import { UpdateClientComponent } from './pages/client/update-client/update-clien
     {path:'updateClient/:id',component:UpdateClientComponent}]),
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     
   ],
   providers: [],
