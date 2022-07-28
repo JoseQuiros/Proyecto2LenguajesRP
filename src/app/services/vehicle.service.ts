@@ -35,6 +35,10 @@ export class VehicleService {
   {
     return this.http.delete(this.url+'/vehicle/delete/'+id);
   }
+  getVehicleByClient(id: string):Observable<any>
+  {
+    return this.http.get(this.url+'/vehicle/getVehicleByClient/'+id);
+  }
 
 }
 
