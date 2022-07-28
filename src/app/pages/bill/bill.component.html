@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<br>
+<div class="container">
+   
+<h1>Facturas</h1> <br><br>
+    <!-- <button class="btn btn-primary" [routerLink]="['/registerFee']" routerLinkActive="router-link-active" >Agregar</button> <br><br> -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">IDbill</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Vehiculo</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Parqueo</th>
+                <th scope="col">Espacio</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Facturador</th>
+                <!-- <th>Accion</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bills of listBill">
+                <td>{{bills.idbill}}</td>
+                <td>{{bills.client}}</td>
+                <td>{{bills.vehicle}}</td>
+                <td>{{bills.daterem}}</td>
+                <td>{{bills.parking}}</td>
+                <td>{{bills.parkingslot}}</td>
+                <td>{{bills.totalcost}}</td>
+                <td>{{bills.facturator}}</td>
+                <!-- <td>
+                    <button class="btn btn-danger" (click)="delete(fees.idfee)">Eliminar</button> 
+                    <button class="btn btn-warning" [routerLink]="['/updateFee/', fees.idfee]" routerLinkActive="router-link-active" >Modificar</button>
+                </td> -->
+            </tr>
+
+        </tbody>
+    </table>
+</div>

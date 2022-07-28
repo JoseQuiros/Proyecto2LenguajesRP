@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="container">
+
+<h1>Actualizar informacion de espacios</h1>
+<form action="" #contactForm="ngForm">
+    <input type="text" class="form-control" id="idfee" name="idfee" [(ngModel)]="feeUpdate.idfee" hidden #name="ngModel">
+  
+    <div class="mb-4">
+        <label for="department" class="form-label">Tipo de vehiculo</label>
+        <select name="roles"class="form-control" [(ngModel)]="feeUpdate.typevehicle.idtype">
+          <option>Open this select menu</option>
+          <option [value]="types.idtype"*ngFor="let types of typesList">
+            {{types.name}}
+          </option>
+          
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label for="department" class="form-label">Tiepo</label>
+        <select name="roles"class="form-control" [(ngModel)]="feeUpdate.times.idtimes">
+            <option>Open this select menu</option>
+            <option [value]="times.idtimes"*ngFor="let times of timeList">
+              {{times.name}}
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="mb-4">
+        <label for="name" class="form-label">Precio</label>
+        <input type="number" class="form-control" id="telephone" name="telephone" [(ngModel)]="feeUpdate.price" required #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+    </div>
+  
+  
+  <div class="d-grid gap-2 col-4 float-end">
+    <button type="submit" class="btn btn-info btn-lg" (click)="updateFee()">Actualizar</button>
+  </div>
+</form>
+
+</div>
+<br><br><br><br><br>
+<app-footer></app-footer>

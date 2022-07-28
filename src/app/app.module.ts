@@ -36,6 +36,13 @@ import { UpdateVehicleComponent } from './pages/vehicle/update-vehicle/update-ve
 import { ListClientComponent } from './pages/client/list-client/list-client.component';
 import { RegisterClientComponent } from './pages/client/register-client/register-client.component';
 import { UpdateClientComponent } from './pages/client/update-client/update-client.component';
+
+=======
+import { RegisterTarifaComponent } from './pages/tarifa/register-tarifa/register-tarifa.component';
+import { UpdateTarifaComponent } from './pages/tarifa/update-tarifa/update-tarifa.component';
+import { UpdateSlotComponent } from './pages/slot/update-slot/update-slot.component';
+import { BillComponent } from './pages/bill/bill.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarClientComponent } from './sharepage/navbar-client/navbar-client.component';
 
@@ -71,8 +78,16 @@ import { NavbarClientComponent } from './sharepage/navbar-client/navbar-client.c
     ListClientComponent,
     RegisterClientComponent,
     UpdateClientComponent,
+
     NavbarClientComponent,
     
+=======
+    RegisterTarifaComponent,
+    UpdateTarifaComponent,
+    UpdateSlotComponent,
+    BillComponent,
+    NavbarClientComponent,
+
     
   ],
   imports: [
@@ -99,7 +114,12 @@ import { NavbarClientComponent } from './sharepage/navbar-client/navbar-client.c
     {path:'updateVehicle/:id',component:UpdateVehicleComponent},
     {path:'listClient',component:ListClientComponent},
     {path:'registerClient',component:RegisterClientComponent},
-    {path:'updateClient/:id',component:UpdateClientComponent}]),
+    {path:'updateClient/:id',component:UpdateClientComponent},
+    {path:'registerFee',component:RegisterTarifaComponent},
+    {path:'updateFee/:id',component:UpdateTarifaComponent},
+    {path:'updateSlots/:id',component:UpdateSlotComponent},
+    {path:'bill',component:BillComponent}
+  ]),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
