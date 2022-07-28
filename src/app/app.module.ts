@@ -12,7 +12,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { MenupageComponent } from './pages/menupage/menupage.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TarifaComponent } from './pages/tarifa/tarifa.component';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
@@ -40,6 +40,8 @@ import { RegisterTarifaComponent } from './pages/tarifa/register-tarifa/register
 import { UpdateTarifaComponent } from './pages/tarifa/update-tarifa/update-tarifa.component';
 import { UpdateSlotComponent } from './pages/slot/update-slot/update-slot.component';
 import { BillComponent } from './pages/bill/bill.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarClientComponent } from './sharepage/navbar-client/navbar-client.component';
 
 
 @NgModule({
@@ -77,16 +79,16 @@ import { BillComponent } from './pages/bill/bill.component';
     UpdateTarifaComponent,
     UpdateSlotComponent,
     BillComponent,
-  
+    NavbarClientComponent,
     
   ],
   imports: [
     BrowserModule,
-    
     RouterModule.forRoot([ {path:'about',component:AboutComponent},
     {path:'tarifa',component:TarifaComponent},
     {path:'vehicle',component:VehicleComponent},
 
+    {path:'home',component:HomeComponent},
     {path:'parking',component:ParkingComponent},
     {path:'slot',component:SlotComponent},
     {path:'rol',component:RolComponent},
@@ -112,7 +114,9 @@ import { BillComponent } from './pages/bill/bill.component';
   ]),
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     
   ],
   providers: [],

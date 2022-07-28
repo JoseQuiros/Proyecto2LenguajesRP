@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 
 
+
 export const ROUTES: Routes = [
   { path: 'admin-page', component:AdminPageComponent }, 
 
@@ -24,7 +25,7 @@ const routes: Routes=[
 
 export class AboutComponent implements OnInit {
 
-  constructor(private localStorage: LoginService) { }
+  constructor(private localStorage: LoginService   ) { }
 
   ngOnInit(): void {
 

@@ -1,0 +1,21 @@
+
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">CLOUD PARKING</a>
+    <button class="navbar-toggler" (click)="collapse=!collapse" type="button" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="navbar-collapse" (click)="collapse=true" [hidden]="collapse">
+      <ul class="navbar-nav mr-auto">
+           <!--Operador y administrador-->
+     
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/seats">Clientes( vistacliente) </a> 
+         </li>
+         <li class="nav-item">
+            <a   class="nav-link" (click)="Logout();">Salir</a>
+        </li>  
+        </ul>
+    </div>
+  </nav>
