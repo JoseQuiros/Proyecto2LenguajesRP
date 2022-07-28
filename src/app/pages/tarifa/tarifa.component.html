@@ -1,1 +1,32 @@
 <app-navbar></app-navbar>
+
+<br>
+<div class="container">
+   
+<h1>Registrar Tarifas</h1> <br><br>
+    <button class="btn btn-primary" [routerLink]="['/registerFee']" routerLinkActive="router-link-active" >Agregar</button> <br><br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">IDFee</th>
+                <th scope="col">IDtype</th>
+                <th scope="col">IDtime</th>
+                <th scope="col">Price</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fees of listFee">
+                <td>{{fees.idfee}}</td>
+                <td>{{fees.typevehicle.name}}</td>
+                <td>{{fees.times.name}}</td>
+                <td>{{fees.price}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="delete(fees.idfee)">Eliminar</button>
+                    <button class="btn btn-warning" [routerLink]="['/updateFee/', fees.idfee]" routerLinkActive="router-link-active" >Modificar</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
