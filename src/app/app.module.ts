@@ -36,6 +36,10 @@ import { UpdateVehicleComponent } from './pages/vehicle/update-vehicle/update-ve
 import { ListClientComponent } from './pages/client/list-client/list-client.component';
 import { RegisterClientComponent } from './pages/client/register-client/register-client.component';
 import { UpdateClientComponent } from './pages/client/update-client/update-client.component';
+import { RegisterTarifaComponent } from './pages/tarifa/register-tarifa/register-tarifa.component';
+import { UpdateTarifaComponent } from './pages/tarifa/update-tarifa/update-tarifa.component';
+import { UpdateSlotComponent } from './pages/slot/update-slot/update-slot.component';
+import { BillComponent } from './pages/bill/bill.component';
 
 
 @NgModule({
@@ -69,6 +73,10 @@ import { UpdateClientComponent } from './pages/client/update-client/update-clien
     ListClientComponent,
     RegisterClientComponent,
     UpdateClientComponent,
+    RegisterTarifaComponent,
+    UpdateTarifaComponent,
+    UpdateSlotComponent,
+    BillComponent,
   
     
   ],
@@ -96,7 +104,12 @@ import { UpdateClientComponent } from './pages/client/update-client/update-clien
     {path:'updateVehicle/:id',component:UpdateVehicleComponent},
     {path:'listClient',component:ListClientComponent},
     {path:'registerClient',component:RegisterClientComponent},
-    {path:'updateClient/:id',component:UpdateClientComponent}]),
+    {path:'updateClient/:id',component:UpdateClientComponent},
+    {path:'registerFee',component:RegisterTarifaComponent},
+    {path:'updateFee/:id',component:UpdateTarifaComponent},
+    {path:'updateSlots/:id',component:UpdateSlotComponent},
+    {path:'bill',component:BillComponent}
+  ]),
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
