@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { Users, UsersService } from 'src/app/services/users.service';
+import { VehicleService } from 'src/app/services/vehicle.service';
 
 @Component({
   selector: 'app-home',
@@ -24,12 +25,23 @@ export class HomeComponent implements OnInit {
     email: '',
     clave: ''
   };
+  vehicleUpdate: any={
+    idvehicle: '',
+    type: {idtype:''} ,
+    brand: '', 
+    model: '',
+    color: '',
+    year: '',
+    register: '',
+    description: ''
+  };
 
   formData!: FormGroup;
   constructor(
     private userService: UsersService,
     private readonly router: Router,
     private localStorageService: LoginService,
+    private vehicleService: VehicleService
   ) {}
 
   ngOnInit(): void {}
@@ -50,6 +62,22 @@ export class HomeComponent implements OnInit {
       this.localStorageService.saveData('iduser',this.userCompare.iduser);
       this.localStorageService.saveData('authority',this.userCompare.rol.authority);
       this.localStorageService.saveData('name',this.userCompare.name);
+  
+      if(this.userCompare.rol.authority==1){
+
+        this.vehicleService.getVehicleByClient(this.userCompare.iduser).subscribe(
+          res=>{
+            this.vehicleUpdate=res;
+         
+            this.localStorageService.saveData('typevehicle',this.vehicleUpdate.type.idtype);
+          },
+          err=>console.log(err)
+        );
+
+      }
+     
+
+
       this.redirectView(this.userCompare.rol.authority);
     } else {
    console.log("pasword incorrecto"+"user ingresado clave:"+this.user.clave+" user traido clave " +this.userCompare.clave );
@@ -57,11 +85,14 @@ export class HomeComponent implements OnInit {
    
   }
   redirectView(flag: number) {
-    console.log("flagggg"+ flag);
+  
+    
     switch (flag) {
       case 1:
+       
+   
         this.router.navigate(['/seats']);
-        this.localStorageService.saveData('name',this.userCompare.name);
+     
         break;
       case 2:
         this.router.navigate(['/about']);
