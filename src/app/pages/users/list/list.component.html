@@ -1,43 +1,57 @@
 <app-navbar></app-navbar>
-<br>
+<br />
 <div class="container">
-   
-<h1>Registrar Usuario</h1> <br><br>
-    <button class="btn btn-primary" [routerLink]="['/register']" routerLinkActive="router-link-active" >Agregar</button> <br><br>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">IDUser</th>
-                <th scope="col">Rol</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">DNI</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Email</th>
-                <th scope="col">Contraseña</th>
-                <th scope="col">Estado</th>
-                <th>#</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let users of list">
-                <td>{{users.iduser}}</td>
-                <td>{{users.rol.name}}</td>
-                <td>{{users.name}}</td>
-                <td>{{users.dni}}</td>
-                <td>{{users.age}}</td>
-                <td>{{users.telephone}}</td>
-                <td>{{users.email}}</td>
-                <td>{{users.clave}}</td>
-                <td>{{users.state}}</td>
-                <td>
-                    <button class="btn btn-danger" (click)="delete(users.iduser)">Eliminar</button>
-                    <button class="btn btn-warning" [routerLink]="['/updateUser/',users.iduser]" routerLinkActive="router-link-active" >Modificar</button>
-                </td>
-            </tr>
-
-        </tbody>
+  <h1>Registrar Usuario</h1>
+  <br /><br />
+  <button
+    class="btn btn-primary"
+    [routerLink]="['/register']"
+    routerLinkActive="router-link-active"
+  >
+    Agregar
+  </button>
+  <br /><br />
+  <div class="table-responsive">
+    <table class="table table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">IDUser</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Email</th>
+          <th scope="col">Contraseña</th>
+          <th scope="col">Estado</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let users of list">
+          <td>{{ users.iduser }}</td>
+          <td>{{ users.rol.name }}</td>
+          <td>{{ users.name }}</td>
+          <td>{{ users.dni }}</td>
+          <td>{{ users.age }}</td>
+          <td>{{ users.telephone }}</td>
+          <td>{{ users.email }}</td>
+          <td>{{ users.clave }}</td>
+          <td>{{ users.state }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="delete(users.iduser)">
+              Eliminar
+            </button>
+            <button
+              class="btn btn-warning"
+              [routerLink]="['/updateUser/', users.iduser]"
+              routerLinkActive="router-link-active"
+            >
+              Modificar
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
+  </div>
 </div>
-
-

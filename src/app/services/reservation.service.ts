@@ -14,7 +14,19 @@ export class ReservationService {
 {
   return this.http.get<Reservation>(this.url+'/reservation/getAllReservations');
 }
+
+
+delete(id:string):Observable<any>
+{
+  return this.http.delete(this.url+'/reservation/cancel/'+id);
 }
+
+
+}
+
+
+
+
 
 export interface Reservation{
   idreservation: string;
