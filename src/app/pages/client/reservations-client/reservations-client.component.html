@@ -1,0 +1,82 @@
+<app-navbar-client></app-navbar-client>
+
+<br />
+<div class="container">
+  <h1>Facturas</h1>
+  <br /><br />
+  <!-- <button class="btn btn-primary" [routerLink]="['/registerFee']" routerLinkActive="router-link-active" >Agregar</button> <br><br> -->
+  <div class="table-responsive">
+    <table class="table table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">IDreservacion</th>
+          <th scope="col">Parqueo</th>
+          <th scope="col">Espacio</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Vehiculo</th>
+          <th scope="col">Placa</th>
+          <th scope="col">CantidadTiempo</th>
+          <th scope="col">Time</th>
+          <th scope="col">Costo Total</th>
+          <th scope="col">FechaInicial</th>
+          <th scope="col">FechaFinal</th>
+          <th scope="col">Estado</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reserv of listReservation, index as i">
+            <tr *ngFor="let reservation of listReservation, index as j">
+            <td>{{listReservation[j][i]}}</td>
+            <td>{{listReservation[j][i+1]}}</td>
+            <td>{{listReservation[j][i+2]}}</td>
+            <td>{{listReservation[j][i+3]}}</td>
+            <td>{{listReservation[j][i+4]}}</td>
+            <td>{{listReservation[j][i+5]}}</td>
+            <td>{{listReservation[j][i+6]}}</td>
+            <td>{{listReservation[j][i+7]}}</td>
+            <td>{{listReservation[j][i+8]}}</td>
+            <td>{{listReservation[j][i+9]}}</td>
+            <td>{{listReservation[j][i+10]}}</td>
+            <div *ngIf="listReservation[j][i+11]==='R';then thenBlock">this is ignored</div>
+       
+
+            <ng-template #thenBlock> 
+              <td>Rechazada</td>
+              <td>
+                <button class="btn btn-danger" (click)="cancelReservation(listReservation[j][i])"disabled>Cancelar</button> 
+              </td>
+            
+            </ng-template>
+            <div *ngIf="listReservation[j][i+11]==='A';then elseBlock">this is ignored</div>
+            <ng-template #elseBlock>
+
+                <td>En espera</td>
+                <td>
+                  <button class="btn btn-danger" (click)="cancelReservation(listReservation[j][i])">Cancelar</button> 
+            
+                </td>
+
+            </ng-template>
+            <div *ngIf="listReservation[j][i+11]==='F';then lastBlock">this is ignored</div>
+            <ng-template #lastBlock>
+
+                <td>Facturada</td>
+                <td>
+                  <button class="btn btn-danger" (click)="cancelReservation(listReservation[j][i])"disabled>Cancelar</button> 
+            
+                </td>
+
+            </ng-template>
+          
+        </tr>
+
+        <!-- <td>
+            <button class="btn btn-danger" (click)="delete(fees.idfee)">Rechazar</button> 
+            <button class="btn btn-warning" [routerLink]="['/updateFee/', fees.idfee]" routerLinkActive="router-link-active" >Cobrar</button>
+        </td> -->
+
+    </tbody>
+    </table>
+  </div>
+</div>
