@@ -14,7 +14,10 @@ export class ReservationService {
 {
   return this.http.get<Reservation>(this.url+'/reservation/getAllReservations');
 }
-
+getReservationsByClient(id:number):Observable<any>
+{
+  return this.http.get<ReservationClient>(this.url+'/reservation/getAllReservationsByClient/'+id);
+}
 
 delete(id:string):Observable<any>
 {
@@ -32,6 +35,10 @@ saveReservation(bill: Bill):Observable<any>
 }
 
 
+cancelReservation(id:string):Observable<any>
+{
+  return this.http.delete(this.url+'/reservation/cancel/'+id);
+}
 
 }
 
@@ -61,4 +68,20 @@ export interface Bill{
   parkingslot: string;
   totalcost: string;
   facturator: string;
+}
+
+
+export interface ReservationClient{
+  idreservation: string;
+  parkingname: string;
+  parkingslot: string;
+  dni: string;
+  vehicle: string;
+  register: string,
+  canttime: string;
+  time: string;
+  costtotal: string;
+  initdate: string;
+  finaldate: string;
+  state: string;
 }
