@@ -15,9 +15,9 @@ export class BillService {
   return this.http.get<Bill>(this.url+'/bill/getAllBills');
 }
 
-saveBill(bill: Bill):Observable<any>
+saveBill(bill: Bill, id:string):Observable<any>
 {
-  return this.http.post(this.url+'/bill/insertBill', bill);
+  return this.http.post(this.url+'/bill/insertBill/' +id, bill);
 }
 }
 

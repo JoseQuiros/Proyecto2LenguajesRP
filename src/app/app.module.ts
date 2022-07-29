@@ -45,6 +45,7 @@ import { BillComponent } from './pages/bill/bill.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarClientComponent } from './sharepage/navbar-client/navbar-client.component';
+import { CheckInComponent } from './pages/reservation/check-in/check-in.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { NavbarClientComponent } from './sharepage/navbar-client/navbar-client.c
     UpdateSlotComponent,
     BillComponent,
     NavbarClientComponent,
+    CheckInComponent,
 
     
   ],
@@ -118,7 +120,8 @@ import { NavbarClientComponent } from './sharepage/navbar-client/navbar-client.c
     {path:'registerFee',component:RegisterTarifaComponent},
     {path:'updateFee/:id',component:UpdateTarifaComponent},
     {path:'updateSlots/:id',component:UpdateSlotComponent},
-    {path:'bill',component:BillComponent}
+    {path:'bill',component:BillComponent},
+    {path:'checkIn/:id',component:CheckInComponent},
   ]),
     AppRoutingModule,
     FormsModule,

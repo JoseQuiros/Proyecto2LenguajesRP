@@ -2,7 +2,7 @@
 
 <br />
 <div class="container">
-  <h1>Facturas</h1>
+  <h1>Reservaciones</h1>
   <br /><br />
   <!-- <button class="btn btn-primary" [routerLink]="['/registerFee']" routerLinkActive="router-link-active" >Agregar</button> <br><br> -->
   <div class="table-responsive">
@@ -39,7 +39,7 @@
             <td>{{listReservation[j][i+10]}}</td>
             <td>
                 <button class="btn btn-danger" (click)="delete(listReservation[j][i])">Rechazar</button> 
-                <button class="btn btn-warning">Cobrar</button>
+                <button class="btn btn-warning" [routerLink]="['/checkIn/', listReservation[j][i]]" routerLinkActive="router-link-active" >Facturar</button>
             </td>
         </tr>
 
