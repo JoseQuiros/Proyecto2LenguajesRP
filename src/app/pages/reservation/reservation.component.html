@@ -1,46 +1,54 @@
 <app-navbar></app-navbar>
 
-<br>
+<br />
 <div class="container">
-   
-<h1>Facturas</h1> <br><br>
-    <!-- <button class="btn btn-primary" [routerLink]="['/registerFee']" routerLinkActive="router-link-active" >Agregar</button> <br><br> -->
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">IDreservation</th>
-                <th scope="col">ParkingName</th>
-                <th scope="col">Parking</th>
-                <th scope="col">DNI</th>
-                <th scope="col">Vehicle</th>
-                <th scope="col">Register</th>
-                <th scope="col">CantTime</th>
-                <th scope="col">Time</th>
-                <th scope="col">CostTotal</th>
-                <th scope="col">InitDate</th>
-                <th scope="col">FinalDate</th>
-                <!-- <th>Accion</th> -->
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let reservation of listReservation">
-                <td>{{reservation.idreservation}}</td>
-                <td>{{reservation.parkingname}}</td>
-                <td>{{reservation.parkinslot}}</td>
-                <td>{{reservation.dni}}</td>
-                <td>{{reservation.vehicle}}</td>
-                <td>{{reservation.register}}</td>
-                <td>{{reservation.canttime}}</td>
-                <td>{{reservation.time}}</td>
-                <td>{{reservation.costtotal}}</td>
-                <td>{{reservation.initdate}}</td>
-                <td>{{reservation.finaldate}}</td>
-                <!-- <td>
-                    <button class="btn btn-danger" (click)="delete(fees.idfee)">Eliminar</button> 
-                    <button class="btn btn-warning" [routerLink]="['/updateFee/', fees.idfee]" routerLinkActive="router-link-active" >Modificar</button>
-                </td> -->
-            </tr>
+  <h1>Facturas</h1>
+  <br /><br />
+  <!-- <button class="btn btn-primary" [routerLink]="['/registerFee']" routerLinkActive="router-link-active" >Agregar</button> <br><br> -->
+  <div class="table-responsive">
+    <table class="table table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">IDreservation</th>
+          <th scope="col">ParkingName</th>
+          <th scope="col">Parking</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Vehicle</th>
+          <th scope="col">Register</th>
+          <th scope="col">CantTime</th>
+          <th scope="col">Time</th>
+          <th scope="col">CostTotal</th>
+          <th scope="col">InitDate</th>
+          <th scope="col">FinalDate</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reserv of listReservation, index as i">
+            <tr *ngFor="let reservation of listReservation, index as j">
+            <td>{{listReservation[j][i]}}</td>
+            <td>{{listReservation[j][i+1]}}</td>
+            <td>{{listReservation[j][i+2]}}</td>
+            <td>{{listReservation[j][i+3]}}</td>
+            <td>{{listReservation[j][i+4]}}</td>
+            <td>{{listReservation[j][i+5]}}</td>
+            <td>{{listReservation[j][i+6]}}</td>
+            <td>{{listReservation[j][i+7]}}</td>
+            <td>{{listReservation[j][i+8]}}</td>
+            <td>{{listReservation[j][i+9]}}</td>
+            <td>{{listReservation[j][i+10]}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="delete(listReservation[j][i])">Rechazar</button> 
+                <button class="btn btn-warning">Cobrar</button>
+            </td>
+        </tr>
 
-        </tbody>
+        <!-- <td>
+            <button class="btn btn-danger" (click)="delete(fees.idfee)">Rechazar</button> 
+            <button class="btn btn-warning" [routerLink]="['/updateFee/', fees.idfee]" routerLinkActive="router-link-active" >Cobrar</button>
+        </td> -->
+
+    </tbody>
     </table>
+  </div>
 </div>
