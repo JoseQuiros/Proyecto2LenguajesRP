@@ -23,6 +23,18 @@ delete(id:string):Observable<any>
 {
   return this.http.delete(this.url+'/reservation/cancel/'+id);
 }
+
+getReservationById(id: string):Observable<any>
+{
+  return this.http.get(this.url+'/reservation/getReservation/'+id);
+}
+
+saveReservation(bill: Bill):Observable<any>
+{
+  return this.http.post(this.url+'/bill/insertBill', bill);
+}
+
+
 cancelReservation(id:string):Observable<any>
 {
   return this.http.delete(this.url+'/reservation/cancel/'+id);
@@ -47,6 +59,18 @@ export interface Reservation{
   initdate: string;
   finaldate: string;
 }
+
+export interface Bill{
+  idreservation: string;
+  client: string;
+  vehicle: string;
+  parking: string;
+  parkingslot: string;
+  totalcost: string;
+  facturator: string;
+}
+
+
 export interface ReservationClient{
   idreservation: string;
   parkingname: string;
@@ -61,4 +85,3 @@ export interface ReservationClient{
   finaldate: string;
   state: string;
 }
-

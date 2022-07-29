@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+<h1>Facturación</h1>
+<form action="" #contactForm="ngForm">
+  <div class="mb-4">
+    <label for="idreservation" class="form-label">ID de la reservacion</label>
+    <input type="text" class="form-control" id="idreservation" name="idreservation" disabled="true" [(ngModel)]="reservList[0]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="parkingname" class="form-label">Nombre del parqueo</label>
+    <input type="text" class="form-control" id="parkingname" name="parkingname" disabled="true" [(ngModel)]="reservList[1]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="parking" class="form-label">Numero de espacio</label>
+    <input type="text" class="form-control" id="parking" name="parking" disabled="true" [(ngModel)]="reservList[2]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="dni" class="form-label">DNI</label>
+    <input type="text" class="form-control" id="dni" name="dni" disabled="true" [(ngModel)]="reservList[3]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" disabled="true" [(ngModel)]="reservList[4]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="register" class="form-label">Matricula de vehiculo</label>
+    <input type="text" class="form-control" id="register" name="register" disabled="true" [(ngModel)]="reservList[5]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="canttime" class="form-label">Cantidad de tiempo</label>
+    <input type="text" class="form-control" id="canttime" name="canttime" disabled="true" [(ngModel)]="reservList[6]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="time" class="form-label">Tiempo</label>
+    <input type="text" class="form-control" id="time" name="time" disabled="true" [(ngModel)]="reservList[7]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="costtotal" class="form-label">Costo total</label>
+    <input type="text" class="form-control" id="costtotal" name="costtotal" disabled="true" [(ngModel)]="reservList[8]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="initdate" class="form-label">Fecha de inicio</label>
+    <input type="text" class="form-control" id="initdate" name="initdate" disabled="true" [(ngModel)]="reservList[9]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  <div class="mb-4">
+    <label for="finaldate" class="form-label">Fecha final</label>
+    <input type="text" class="form-control" id="finaldate" name="finaldate" disabled="true" [(ngModel)]="reservList[10]" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">This field is required.</div>
+  </div>
+  
+  
+  
+  <div class="d-grid gap-2 col-4 float-end">
+    <button type="submit" class="btn btn-info btn-lg" (click) = "addBill()" >Facturar</button>
+  </div>
+</form>
+
+</div>
+<br><br><br><br><br>
