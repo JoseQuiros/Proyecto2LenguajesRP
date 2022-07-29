@@ -27,12 +27,12 @@
 
                                         <ng-container *ngIf="slots.preferentialslot=='Y'; else normal">
                                             <div class="preferential"
-                                            id="'{{slots.number}}'" (click)="selectSeat(slots.idparkingslot,slots.number, slots.parking.parkingname);">
+                                            id="'{{slots.number}}'" (click)="selectSeat(slots.idparkingslot,slots.number, slots.parking.parkingname, slots.idparking);">
                                       </div>
                                           </ng-container>
                                           <ng-template #normal>
                                             <div class="inline" 
-                                            id="'{{slots.number}}'" (click)="selectSeat(slots.idparkingslot,slots.number, slots.parking.parkingname);">
+                                            id="'{{slots.number}}'" (click)="selectSeat(slots.idparkingslot,slots.number, slots.parking.parkingname, parking.idparking);">
                                             </div>
                                         </ng-template>
 
@@ -56,25 +56,40 @@
                             <form action="" id="reservation-entry-form">
                                   <h2 class="text-black" data-aos="fade-up" data-aos-delay="200">Reservar espacio </h2>
     
-                                       <input type="text" name="id" id="id" hidden>
+                                       <!-- <input type="text" name="id" id="id" hidden> -->
+                                       <input type="text" class="form-control" id="idparking" name="idparking" [(ngModel)]="parkingslot.idparking" hidden #name="ngModel">
+
+                                       <input type="text" class="form-control" id="idparkingslot" name="idparkingslot" [(ngModel)]="parkingslot.idparkingslot" hidden #name="ngModel">
+
+                                       <input type="text" class="form-control" id="idclient" name="idclient" [(ngModel)]="parkingslot.idclient" hidden #name="ngModel">
     
-                                       <label class="text-black" for="idTime">Tiempo: </label>
+                                       <!-- <label class="text-black" for="idTime">Tiempo: </label>
                                        <select id="idTime" class="form-control" name="idTime">                                           
-                                       </select>
+                                       </select> -->
+
+                                       <!-- <div class="form-group"> -->
+                                        <label for="time" class="form-label">Tiempo</label>
+                                        <select name="times"class="form-control" [(ngModel)]="parkingslot.idtime">
+                                          <option>Open this select menu</option>
+                                          <option [value] ="times.idtimes" *ngFor="let times of timeList">
+                                            {{times.name}}
+                                          </option>      
+                                        </select>
+                                      <!-- </div> -->
     
                                      
                                
                                        <label for="cantTime">Elija la cantidad de tiempo </label>                 
-                                       <input type="number" name="cantTime" id="cantTime" class="form-control" placeholder="0" required="">
+                                       <input type="number" name="cantTime" id="cantTime" class="form-control" [(ngModel)]="parkingslot.canttime" #name="ngModel" required="">
                                        <label for="idType">Numero del espacio: </label>
-                                       <input type="text" name="slotNumber" id="slotNumber" class="form-control"  [(ngModel)]="parkingslot.number"  #name="ngModel" disabled>
+                                       <input type="text" name="slotNumber" id="slotNumber" class="form-control"  [(ngModel)]="parkingslot.slotnumber"  #name="ngModel" disabled>
                                        <label for="idType">Nombre del paqueo: </label>
                                        <input type="text" name="parkingName" id="parkingName" class="form-control"  [(ngModel)]="parkingslot.parkingName" #name="ngModel" disabled>
                                        <label for="dateHour">Fecha y hora: </label>
     
                                        <input type="datetime-local" id="dateHour"
                                            name="dateHour" value="2022-06-07T00:00"
-                                           min="2022-06-07T00:00" max="2026-06-14T00:00">
+                                           min="2022-06-07T00:00" max="2026-06-14T00:00" [(ngModel)]="parkingslot.initdate"  #name="ngModel">
     
                                     <button type="button" class="btn btn-secondary" onclick="return consultReservation();" id="form-submit2">Consultar</button>
                                           <label for="idType">Costo: </label>
@@ -83,7 +98,7 @@
     
                                        <label id="resultReservationAvailable"></label>
                                         <br>
-                                       <button class="submit-btn form-control" onsubmit="return AddReservation();" id="form-submit">Reservar</button>
+                                       <button class="submit-btn form-control" (click)="addReservation()" id="form-submit">Reservar</button>
                                        <button class="submit-btn form-control" onclick="Clear();return false" id="form-cancel">Cancelar</button>
                                  
     
