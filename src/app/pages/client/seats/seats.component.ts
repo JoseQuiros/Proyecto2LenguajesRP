@@ -14,7 +14,7 @@ export class SeatsComponent implements OnInit {
    listSeats:any=[];
    parkingList:any=[];
    timeList: any;
-
+    idtype:any;
 
    parking:any={
     idparking:  '',
@@ -49,6 +49,12 @@ export class SeatsComponent implements OnInit {
     this.parkingService.getAllParkings().subscribe((data:any)=> {this.parkingList=data;})
     this.tarifaService.getTimes().subscribe((dataTime:any)=> {this.timeList=dataTime;})
     this.parkingslot.idclient = this.loginService.getData("iduser");
+    this.idtype = Number(this.loginService.getData("typevehicle"));
+
+    console.log( "xdddddddddddddddd"+this.idtype);
+    
+
+
   }
  
   GetParkingSlotByParking(_idParking: number)
@@ -56,8 +62,8 @@ export class SeatsComponent implements OnInit {
     this.parkingslotservice.GetParkingSlotByParking(_idParking).subscribe(
       res=>{
         this.list=res;  
-        console.log(this.parking)
-        console.log(this.parkingslot)   
+        console.log(this.list)
+ 
       },
       err=>console.log(err)
     );
