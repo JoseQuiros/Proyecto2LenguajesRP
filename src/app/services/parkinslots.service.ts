@@ -18,6 +18,11 @@ export class ParkinslotsService {
   {
     return this.http.get<ParkingSlot>(this.url+'/parkingslot/getSlotsbyParking/'+_idParking);
   }
+
+  saveReservation(reserv: Reserv):Observable<any>
+  {
+    return this.http.post(this.url+'/reservation/saveReservation', reserv);
+  }
 }
 export interface ParkingSlot{
   idparkingslot:string;
@@ -27,3 +32,12 @@ export interface ParkingSlot{
   preferentialslot:string;
   state:string;
 }
+
+export interface Reserv{
+    idparking:string,
+    idtime:string, 
+    slotnumber:string,
+    idclient: string,
+    initdate: string,
+    canttime: string
+  };
